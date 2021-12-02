@@ -6,4 +6,4 @@
 
 ### EXECUTION
 
-Copy and paste the code in your console
+Copy and paste the code in index.js in your browser console and run your tests.
