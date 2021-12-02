@@ -22,8 +22,8 @@ Die Laufzeit berechnet sich wie folgt:
 
 Der schlimmste Fall besteht darin, das Feld von n Elementen x-mal aufzuteilen, bis das Ergebnis 1 ist.
 
-n x ½ x ½ x ½ x ½ …. = 1  
-n x ½ <sup>x</sup> = 1  
+n * ½ * ½ * ½ * ½ …. = 1  
+n * ½ <sup>x</sup> = 1  
 n = 2 <sup>x</sup>  
 log<sub>2</sub> n = log<sub>2</sub> 2 <sup>x</sup>  
 log<sub>2</sub>n = x
