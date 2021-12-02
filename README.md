@@ -4,9 +4,28 @@
 - The intervals are NOT sorted.
 - The intervals are arrays where the first value (start) is lower then the second value (end). for ex. [1, 2] and not [2, 1]
 
-### EXECUTION
+### INSTALLATION
 
-Work in Progress
+- Install node (currently I'm using v15.3.0)
+- Install yarn or npm 
+
+Now you can clone, install and run the project 
+
+```
+git clone git@github.com:fabriziobertoglio1987/code-challenge-dm.git
+cd code-challenge-dm
+```
+If you use yarn run
+
+```
+yarn setup
+```
+If you use npm run: 
+
+```
+npm run setup
+```
+
 
 ### QUESTIONS
 
