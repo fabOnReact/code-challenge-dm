@@ -14,7 +14,6 @@
   },
   "scripts": {
     "test": "jest --modulePaths=lib",
-    "yarn_setup": "yarn install & yarn test",
-    "npm_setup": "npm install && npm test"
+    "setup": "$npm_execpath install && $npm_execpath test"
   }
 }
