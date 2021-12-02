@@ -26,6 +26,22 @@ If you use npm run:
 npm run setup
 ```
 
+### TESTS
+
+You can run the test suite with
+
+```
+yarn test
+```
+or 
+
+```
+npm test
+```
+You can edit the test with:
+```
+vim test/index.test.js
+```
 
 ### QUESTIONS
 
