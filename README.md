@@ -26,8 +26,8 @@ Der schlimmste Fall besteht darin, das Feld von n Elementen x-mal aufzuteilen, b
 n * ½ * ½ * ½ * ½ …. = 1
 n * (½) ^ x = 1
 n = 2 ^ x
-log 2 n = log 2 2 ^ x
-log 2 n = x
+log2 n = log2 2 ^ x
+log2 n = x
 ```
 
 >Wie kann die Robustheit sichergestellt werden, vor allem auch mit Hinblick auf sehr große
