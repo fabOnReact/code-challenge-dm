@@ -15,7 +15,7 @@ Now you can clone, install and run the project
 git clone git@github.com:fabriziobertoglio1987/code-challenge-dm.git
 cd code-challenge-dm
 ```
-If you use yarn run
+If you use yarn run:
 
 ```
 yarn setup
