@@ -74,6 +74,12 @@ describe("merges a list", () => {
 });
 
 describe("throws an error when", () => {
+  test("there is only one invalid interval", () => {
+    expect(() => mergeList([[undefined]])).toThrow(
+      getMessage("WRONG_LIST_VALUE", [undefined])
+    );
+  });
+
   test("the first interval value is invalid", () => {
     expect(() =>
       mergeList([
