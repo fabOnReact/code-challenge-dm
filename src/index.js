@@ -4,11 +4,18 @@
 // The intervals are arrays where the first value (start)
 // is lower then the second value (end)
 // for ex. [1, 2] and not [2, 1]
+
+// take a list parameter which is an array of intervals
+// [[2, 6], [1, 2]]
+// returns an array of not overlapping intervals
+// [[1, 6]]
 export function mergeList(list) {
   if (!list) throw getMessage("WRONG_LIST_VALUE", list);
   if (!Array.isArray(list)) throw getMessage("WRONG_LIST_TYPE", list);
   if (list.length === 0) return list;
   const sortedList = [...list];
+  // sorts the intervals based on their starting minute
+  // [[2, 6], [1, 2]] => [[1, 2], [2, 6]]
   sortedList.sort((firstEl, secondEl) => {
     checkIntervalAndThrow(firstEl);
     checkIntervalAndThrow(secondEl);
@@ -17,13 +24,18 @@ export function mergeList(list) {
   if (sortedList.length === 1) checkIntervalAndThrow(sortedList[0]);
   let mergedList = [sortedList[0]];
   for (let i = 1; i < sortedList.length; i++) {
-    const currentInterval = list[i];
+    const currentInterval = sortedList[i];
     const currentStartTime = currentInterval[0];
-    const previousEndTime = mergedList[mergedList.length - 1][1];
+    const previousInterval = mergedList[mergedList.length - 1];
+    const previousEndTime = previousInterval[1];
+    // if the currentStartTime (2) is lower or equal then
+    // the previousEndTime (6), the two intervals are merged
+    // [[2, 6], [1, 2]] => [[1, 6]]
     if (currentStartTime <= previousEndTime) {
-      const previousElement = mergedList.pop();
+      mergedList.pop();
+      const lowestStartTime = Math.min(previousInterval[0], currentInterval[0]);
       const highestEndTime = Math.max(previousEndTime, currentInterval[1]);
-      mergedList.push([previousElement[0], highestEndTime]);
+      mergedList.push([lowestStartTime, highestEndTime]);
     } else {
       mergedList.push(currentInterval);
     }

@@ -1,4 +1,4 @@
-### ASSUMPTION
+### ASSUMPTIONS
 
 - The intervals are only integers. Not undefined or null values.
 - The intervals are NOT sorted.

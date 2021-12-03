@@ -71,6 +71,15 @@ describe("merges a list", () => {
     ];
     expect(mergeList(list)).toEqual(result);
   });
+
+  test("intervals are not sorted", () => {
+    const list = [
+      [2, 6],
+      [1, 2],
+    ];
+    const result = [[1, 6]];
+    expect(mergeList(list)).toEqual(result);
+  });
 });
 
 describe("throws an error when", () => {
