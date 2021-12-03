@@ -29,8 +29,8 @@ export function mergeList(list) {
     const previousInterval = mergedList[mergedList.length - 1];
     const previousEndTime = previousInterval[1];
     // if the currentStartTime (2) is lower or equal then
-    // the previousEndTime (6), the two intervals are merged
-    // [[2, 6], [1, 2]] => [[1, 6]]
+    // the previousEndTime (2), the two intervals are merged
+    // [[1, 2], [2, 6]] => [[1, 6]]
     if (currentStartTime <= previousEndTime) {
       mergedList.pop();
       const lowestStartTime = Math.min(previousInterval[0], currentInterval[0]);
@@ -43,6 +43,9 @@ export function mergeList(list) {
   return mergedList;
 }
 
+// takes the currentInterval as parameters
+// verifies that the interval has the correct format
+// if the format is not correct, triggers an error
 function checkIntervalAndThrow(currentInterval) {
   if (!Array.isArray(currentInterval))
     throw getMessage("WRONG_LIST_TYPE", currentInterval);
@@ -56,6 +59,9 @@ function checkIntervalAndThrow(currentInterval) {
   }
 }
 
+// parameter type identifies the type of message
+// parameter data is an interval
+// returns a string message
 export function getMessage(type, data) {
   const ERROR_MSG = "currentInterval with value:";
   const ERROR_NOT_VALID_PARAM = "is not a valid parameter.";

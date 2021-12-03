@@ -74,10 +74,14 @@ describe("merges a list", () => {
 
   test("intervals are not sorted", () => {
     const list = [
+      [8, 10],
       [2, 6],
       [1, 2],
     ];
-    const result = [[1, 6]];
+    const result = [
+      [1, 6],
+      [8, 10],
+    ];
     expect(mergeList(list)).toEqual(result);
   });
 });
