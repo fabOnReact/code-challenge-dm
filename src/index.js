@@ -9,7 +9,7 @@
 // [[2, 6], [1, 2]]
 // returns an array of not overlapping intervals
 // [[1, 6]]
-export function mergeList(list) {
+export function merge(list) {
   if (!list) throw getMessage("WRONG_LIST_VALUE", list);
   if (!Array.isArray(list)) throw getMessage("WRONG_LIST_TYPE", list);
   if (list.length === 0) return list;
@@ -43,7 +43,7 @@ export function mergeList(list) {
   return mergedList;
 }
 
-// takes the currentInterval as parameters
+// takes the currentInterval as parameter
 // verifies that the interval has the correct format
 // if the format is not correct, triggers an error
 function checkIntervalAndThrow(currentInterval) {

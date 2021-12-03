@@ -1,4 +1,4 @@
-import { mergeList, getMessage } from "index";
+import { merge, getMessage } from "index";
 
 describe("merges a list", () => {
   test("with unsorted elements", () => {
@@ -12,7 +12,7 @@ describe("merges a list", () => {
       [2, 23],
       [25, 30],
     ];
-    expect(mergeList(list)).toEqual(result);
+    expect(merge(list)).toEqual(result);
   });
 
   test("with negative numbers", () => {
@@ -25,11 +25,11 @@ describe("merges a list", () => {
       [-50, 4],
       [5, 8],
     ];
-    expect(mergeList(list)).toEqual(result);
+    expect(merge(list)).toEqual(result);
   });
 
   test("that is an empty array", () => {
-    expect(mergeList([])).toEqual([]);
+    expect(merge([])).toEqual([]);
   });
 
   test("with duplicates", () => {
@@ -37,7 +37,7 @@ describe("merges a list", () => {
       [2, 4],
       [2, 4],
     ];
-    expect(mergeList(list)).toEqual([[2, 4]]);
+    expect(merge(list)).toEqual([[2, 4]]);
   });
 
   test("with multiple negative intervals", () => {
@@ -53,7 +53,7 @@ describe("merges a list", () => {
       [100, 200],
       [300, 400],
     ];
-    expect(mergeList(list)).toEqual(result);
+    expect(merge(list)).toEqual(result);
   });
 
   test("with multiple intervals", () => {
@@ -69,7 +69,7 @@ describe("merges a list", () => {
       [4, 8],
       [10, 12],
     ];
-    expect(mergeList(list)).toEqual(result);
+    expect(merge(list)).toEqual(result);
   });
 
   test("with no overlap", () => {
@@ -83,7 +83,7 @@ describe("merges a list", () => {
       [14, 18],
       [110, 112],
     ];
-    expect(mergeList(list)).toEqual(result);
+    expect(merge(list)).toEqual(result);
   });
 
   test("with non sorted intervals", () => {
@@ -96,20 +96,20 @@ describe("merges a list", () => {
       [1, 6],
       [8, 10],
     ];
-    expect(mergeList(list)).toEqual(result);
+    expect(merge(list)).toEqual(result);
   });
 });
 
 describe("throws an error when", () => {
   test("there is only one invalid interval", () => {
-    expect(() => mergeList([[undefined]])).toThrow(
+    expect(() => merge([[undefined]])).toThrow(
       getMessage("WRONG_LIST_VALUE", [undefined])
     );
   });
 
   test("the first interval value is invalid", () => {
     expect(() =>
-      mergeList([
+      merge([
         [undefined, 1],
         [1, 2],
       ])
@@ -118,7 +118,7 @@ describe("throws an error when", () => {
 
   test("the second interval value is invalid", () => {
     expect(() =>
-      mergeList([
+      merge([
         [1, 1],
         [2, null],
       ])
@@ -127,7 +127,7 @@ describe("throws an error when", () => {
 
   test("the interval start minute is after the end minute", () => {
     expect(() =>
-      mergeList([
+      merge([
         [1, 1],
         [2, 1],
       ])
@@ -135,14 +135,12 @@ describe("throws an error when", () => {
   });
 
   test("the list is undefined", () => {
-    expect(() => mergeList(undefined)).toThrow(
+    expect(() => merge(undefined)).toThrow(
       getMessage("WRONG_LIST_VALUE", undefined)
     );
   });
 
   test("the list is not an Array", () => {
-    expect(() => mergeList("word")).toThrow(
-      getMessage("WRONG_LIST_TYPE", "word")
-    );
+    expect(() => merge("word")).toThrow(getMessage("WRONG_LIST_TYPE", "word"));
   });
 });
