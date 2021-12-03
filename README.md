@@ -42,6 +42,7 @@ You can edit the test with:
 ```
 vim tests/index.test.js
 ```
+The solution is included in `src/index.js`.
 
 ### QUESTIONS
 
