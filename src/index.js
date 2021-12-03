@@ -1,3 +1,5 @@
+"use strict";
+
 // ASSUMPTIONS
 // The intervals are only integers. Not undefined or null values.
 // The intervals are NOT sorted.
@@ -13,15 +15,13 @@ export function merge(list) {
   if (!list) throw getMessage("WRONG_LIST_VALUE", list);
   if (!Array.isArray(list)) throw getMessage("WRONG_LIST_TYPE", list);
   if (list.length === 0) return list;
+  checkIntervalsAndThrow(list);
   const sortedList = [...list];
   // sorts the intervals based on their starting minute
   // [[2, 6], [1, 2]] => [[1, 2], [2, 6]]
   sortedList.sort((firstEl, secondEl) => {
-    checkIntervalAndThrow(firstEl);
-    checkIntervalAndThrow(secondEl);
     return firstEl[0] - secondEl[0];
   });
-  if (sortedList.length === 1) checkIntervalAndThrow(sortedList[0]);
   let mergedList = [sortedList[0]];
   for (let i = 1; i < sortedList.length; i++) {
     const currentInterval = sortedList[i];
@@ -43,20 +43,20 @@ export function merge(list) {
   return mergedList;
 }
 
-// takes the currentInterval as parameter
+// takes the intervals as parameter
 // verifies that the interval has the correct format
 // if the format is not correct, triggers an error
-function checkIntervalAndThrow(currentInterval) {
-  if (!Array.isArray(currentInterval))
-    throw getMessage("WRONG_LIST_TYPE", currentInterval);
-  if (currentInterval.includes(undefined) || currentInterval.includes(null)) {
-    throw getMessage("WRONG_LIST_VALUE", currentInterval);
-  }
-  if (currentInterval.length != 2)
-    throw getMessage("WRONG_LENGTH", currentInterval);
-  if (currentInterval[0] > currentInterval[1]) {
-    throw getMessage("WRONG_INTERVAL_START", currentInterval);
-  }
+function checkIntervalsAndThrow(intervals) {
+  intervals.forEach((interval) => {
+    if (!Array.isArray(interval)) throw getMessage("WRONG_LIST_TYPE", interval);
+    if (interval.includes(undefined) || interval.includes(null)) {
+      throw getMessage("WRONG_LIST_VALUE", interval);
+    }
+    if (interval.length != 2) throw getMessage("WRONG_LENGTH", interval);
+    if (interval[0] > interval[1]) {
+      throw getMessage("WRONG_INTERVAL_START", interval);
+    }
+  });
 }
 
 // parameter type identifies the type of message
