@@ -25,6 +25,52 @@ describe("merges a list", () => {
     ];
     expect(mergeList(list)).toEqual([[2, 4]]);
   });
+
+  test("multiple negative intervals", () => {
+    const list = [
+      [-50, 2],
+      [-2, 40],
+      [-60, 8],
+      [100, 200],
+      [300, 400],
+    ];
+    const result = [
+      [-60, 40],
+      [100, 200],
+      [300, 400],
+    ];
+    expect(mergeList(list)).toEqual(result);
+  });
+
+  test("multiple intervals", () => {
+    const list = [
+      [0, 2],
+      [4, 8],
+      [10, 12],
+      [12, 12],
+      [11, 12],
+    ];
+    const result = [
+      [0, 2],
+      [4, 8],
+      [10, 12],
+    ];
+    expect(mergeList(list)).toEqual(result);
+  });
+
+  test("no overlaps", () => {
+    const list = [
+      [10, 12],
+      [14, 18],
+      [110, 112],
+    ];
+    const result = [
+      [10, 12],
+      [14, 18],
+      [110, 112],
+    ];
+    expect(mergeList(list)).toEqual(result);
+  });
 });
 
 describe("throws an error when", () => {
