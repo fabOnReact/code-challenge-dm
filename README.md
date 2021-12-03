@@ -79,3 +79,7 @@ Wenn ich die aktuelle Programmlaufzeit verbessern müsste, würde ich versuchen,
 Das Programm verwendet `O(n)` Speicherplatz, indem es ein neues Feld erstellt, um das zusammengeführte Ergebnis zu speichern.
 
 Die In-Place Änderung würde `O(1)` statt `O(n)` Speicherplatz kosten, kann aber die Laufzeit verlangsamen.
+
+### IMPROVEMENTS
+
+- add flow types
