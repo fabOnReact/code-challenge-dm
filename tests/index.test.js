@@ -1,6 +1,20 @@
 import { mergeList, getMessage } from "index";
 
 describe("merges a list", () => {
+  test("with unsorted elements", () => {
+    const list = [
+      [25, 30],
+      [2, 19],
+      [14, 23],
+      [4, 8],
+    ];
+    const result = [
+      [2, 23],
+      [25, 30],
+    ];
+    expect(mergeList(list)).toEqual(result);
+  });
+
   test("with negative numbers", () => {
     const list = [
       [-50, 2],
