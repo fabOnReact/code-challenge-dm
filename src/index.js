@@ -77,7 +77,7 @@ export function getMessage(type, data) {
     case "WRONG_INTERVAL_START":
       return (
         `${ERROR_MSG} ${json} is not acceptable parameter. ` +
-        `The first value ${data[0]} should be smaller ` +
+        `The first value ${data[0]} should be smaller or equal` +
         `then second value ${data[1]}.`
       );
     default:
