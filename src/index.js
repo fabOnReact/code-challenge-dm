@@ -81,9 +81,9 @@ export function getMessage(type, data) {
         `then second value ${data[1]}.`
       );
     default:
-      console.error(
-        `type: ${type} with ${data} does not have a ` +
-          "corresponding error in getErrorMessage."
+      throw (
+        `type: ${type} with data: ${data} does not have a ` +
+        "corresponding error message in getErrorMessage."
       );
   }
 }
