@@ -26,7 +26,7 @@ describe("merges a list", () => {
     expect(mergeList(list)).toEqual([[2, 4]]);
   });
 
-  test("multiple negative intervals", () => {
+  test("with multiple negative intervals", () => {
     const list = [
       [-50, 2],
       [-2, 40],
@@ -42,7 +42,7 @@ describe("merges a list", () => {
     expect(mergeList(list)).toEqual(result);
   });
 
-  test("multiple intervals", () => {
+  test("with multiple intervals", () => {
     const list = [
       [0, 2],
       [4, 8],
@@ -58,7 +58,7 @@ describe("merges a list", () => {
     expect(mergeList(list)).toEqual(result);
   });
 
-  test("no overlaps", () => {
+  test("with no overlap", () => {
     const list = [
       [10, 12],
       [14, 18],
@@ -72,7 +72,7 @@ describe("merges a list", () => {
     expect(mergeList(list)).toEqual(result);
   });
 
-  test("intervals are not sorted", () => {
+  test("with non sorted intervals", () => {
     const list = [
       [8, 10],
       [2, 6],
