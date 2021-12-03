@@ -15,7 +15,7 @@
     "jest": "^27.4.3"
   },
   "scripts": {
-    "test": "jest --modulePaths=lib",
+    "test": "jest --modulePaths=src",
     "setup": "$npm_execpath install && $npm_execpath test"
   },
   "dependencies": {

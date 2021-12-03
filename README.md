@@ -40,7 +40,7 @@ npm test
 ```
 You can edit the test with:
 ```
-vim test/index.test.js
+vim tests/index.test.js
 ```
 
 ### QUESTIONS
