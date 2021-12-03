@@ -15,5 +15,8 @@
   "scripts": {
     "test": "jest --modulePaths=lib",
     "setup": "$npm_execpath install && $npm_execpath test"
+  },
+  "dependencies": {
+    "prettier": "^2.5.0"
   }
 }
